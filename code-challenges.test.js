@@ -127,6 +127,10 @@ expect(fullHouse(hand3)).toEqual(false)
 // b) Create the function that makes the test pass.
 
 
+//Create a function called fullHouse.
+// Use array.sort to sort the array from lowest to highest
+// Use if condition, If the condition is met, then return true.
+//  Use an else if condition.
 
 
 
