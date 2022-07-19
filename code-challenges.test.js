@@ -15,42 +15,137 @@
 
 // a) Create a test with expect statements using the variables provided.
 
-const secretCodeWord1 = "Lackadaisical"
-// Expected output: "L4ck4d41s1c4l"
-const secretCodeWord2 = "Gobbledygook"
-// Expected output: "G0bbl3dyg00k"
-const secretCodeWord3 = "Eccentric"
-// Expected output: "3cc3ntr1c"
+describe("newLine", () => {
+  it("takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0.", () =>{
+  const secretCodeWord1 = "Lackadaisical"
+  // Expected output: "L4ck4d41s1c4l"
+  const secretCodeWord2 = "Gobbledygook"
+  // Expected output: "G0bbl3dyg00k"
+  const secretCodeWord3 = "Eccentric"
+  // Expected output: "3cc3ntr1c"
+  expect(newLine(secretCodeWord1)).toEqual("L4ck4d41s1c4l")
+  expect(newLine(secretCodeWord2)).toEqual("G0bbl3dyg00k")
+  expect(newLine(secretCodeWord3)).toEqual("3cc3ntr1c")
+  })
+})
+//ReferenceError: newLine is not defined  
 
 
 // b) Create the function that makes the test pass.
+
+
+//Pseudocode:
+// Declare a function called newLine
+// Set parameter to string
+// Use .split to convert to array
+// using .map to iterate through the array
+// Use conditionals to make changes 
+// use .join to put back the new string
+
+
+const newLine = (string) => {
+  let newArray = string.split("")
+  return newArray.map(letter => {
+    if(letter === "a" || letter === "A") {
+     return 4
+  }else if(letter === "e" || letter === "E") {
+    return 3
+ }else if(letter === "i" || letter === "I") {
+    return 1
+ }else if(letter === "o"|| letter === "O") {
+    return 0 
+}else
+  return letter
+ })
+.join("")
+}
+
+//Test Suites: 1 passed, 1 total
+// Tests:       1 passed, 1 total
+
+
 
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns an array of all the words containing that particular letter.
 
 // a) Create a test with expects statement using the variable provided.
 
+describe("singleLetter", () => {
+  it("takes in an array of words and a single letter and returns an array of all the words containing that particular letter.", () =>{
 const fruitArray = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach", "Kiwi"]
-
 const letterA = "a"
 // Expected output: ["Mango", "Apricot", "Peach"]
 const letterE = "e"
 // Expected output: ["Cherry", "Blueberry", "Peach"]
-
+expect(singleLetter(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"])
+expect(singleLetter(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"])
+  })
+})
+//ReferenceError: singleLetter is not defined
 
 // b) Create the function that makes the test pass.
+
+// Pseudocode:
+// Declare a function 
+// Set parameter to array and a letter
+// Use .filter to return what we want
+//  use .toLowerCase for any caps in the array
+
+
+const singleLetter = (array, letter) => {
+  return array.filter(value => value.toLowerCase().includes(letter))
+}
+
+
+// Test Suites: 1 passed, 1 total
+// Tests:       2 passed, 2 total
+
+
 
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
 
 // a) Create a test with expect statements using the variable provided.
 
+describe("fullHouse", () => {
+  it("takes in an array of 5 numbers and determines whether or not the array is a 'full house'.", () =>{
 const hand1 = [5, 5, 5, 3, 3]
 // Expected output: true
 const hand2 = [5, 5, 3, 3, 4]
 // Expected output: false
 const hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
+expect(fullHouse(hand1)).toEqual(true)
+expect(fullHouse(hand2)).toEqual(false)
+expect(fullHouse(hand3)).toEqual(false)
+  })
+})
+
+// ReferenceError: fullHouse is not defined
 
 
 // b) Create the function that makes the test pass.
+
+
+//Create a function called fullHouse.
+// Use array.sort to sort the array from lowest to highest
+// Use if condition, If the condition is met, then return true.
+//  Use an else if condition.
+
+
+
+
+
+
+const fullHouse = (array) => {
+  array.sort((a,b) => a-b)
+   if(array[0] === array[1] && array[1] === array[2] && array[3] === array[4]){
+     return true
+   } else {
+    return false
+   }
+  }
+
+
+  //Test Suites: 1 passed, 1 total
+// Tests:       3 passed, 3 total
